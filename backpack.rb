@@ -2,14 +2,14 @@ class Backpack
   def initialize(attributes)
     @attributes = attributes # a hash containing day_of_week and weather keys
     @items = []
-    prepare
+    consider_weather_and_day_of_week_before_packing
   end
 
   def items
     @items
   end
 
-  def prepare
+  def consider_weather_and_day_of_week_before_packing
     # set up local variables used by rest of prepare method
     weather = @attributes[:weather]
     day_of_week = @attributes[:day_of_week]
@@ -29,7 +29,7 @@ class Backpack
     end
 
     # Ensure gym shoes are added to backpack if it's a gym day
-    # Gotta get to the gym on Monday and Thursdays. 
+    # Gotta get to the gym on Monday and Thursdays.
     if day_of_week == 'monday' || day_of_week == 'thursday'
       #add gym shoes to items
       @items << 'gym shoes'
